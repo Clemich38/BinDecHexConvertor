@@ -2,7 +2,10 @@
   {{title}}
 </h1>
 
-<input type="text" [(ngModel)]="binModel" [ngModelOptions]="{standalone: true}" class="center col-12 mt2 mb2 field">
-<input type="text" [(ngModel)]="hexModel" [ngModelOptions]="{standalone: true}" class="center col-12 mt2 mb2 field">
-<input type="text" [(ngModel)]="decModel" [ngModelOptions]="{standalone: true}" class="center col-12 mt2 mb2 field">
+<h5 class="center mt4">Binary</h5>
+<input type="text" [(ngModel)]="binModel" [ngModelOptions]="{standalone: true}" pattern="[0-1]*" class="center col-12 mt1 mb2 field">
+<h5 class="center mt2">Hexadecimal</h5>
+<input type="text" [(ngModel)]="hexModel" [ngModelOptions]="{standalone: true}" pattern="[0-9a-fA-F]*" class="center col-12 mt1 mb2 field">
+<h5 class="center mt2">Decimal</h5>
+<input type="text" [(ngModel)]="decModel" [ngModelOptions]="{standalone: true}" pattern="[0-9]*" class="center col-12 mt1 mb2 field">
 

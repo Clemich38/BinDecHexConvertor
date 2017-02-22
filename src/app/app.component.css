@@ -3,6 +3,16 @@ h1 {
   font-weight: 100;
 }
 
+h5 {
+  font-family: Helvetica;
+  font-weight: 100;
+  color: darkgrey;
+}
+
 input {
   border-style: none;
+}
+
+label {
+  text-align: center;
 }
