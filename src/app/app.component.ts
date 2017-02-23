@@ -32,9 +32,9 @@ export class AppComponent {
   {
     if (parseInt(value, from) <= Number.MAX_SAFE_INTEGER)
     {
-      this.binStr = this.AddSpaces(parseInt(value, from).toString(2));
-      this.hexStr = parseInt(value, from).toString(16);
-      this.decStr = parseInt(value, from).toString(10);
+      this.binStr = this.AddSpaces(parseInt(value, from).toString(2), 4);
+      this.hexStr = this.AddSpaces(parseInt(value, from).toString(16), 4);
+      this.decStr = this.AddSpaces(parseInt(value, from).toString(10), 3);
       this.octStr = parseInt(value, from).toString(8);
       this.errorMsg = "";
     }
@@ -59,6 +59,7 @@ export class AppComponent {
 
   set hexModel(value)
   {
+    value = value.split(' ').join('');
     this.Convert(value, 16);
   }
 
@@ -68,6 +69,7 @@ export class AppComponent {
 
   set decModel(value)
   {
+    value = value.split(' ').join('');
     this.Convert(value, 10);
   }
 
@@ -78,16 +80,17 @@ export class AppComponent {
 
   set octModel(value)
   {
+    value = value.split(' ').join('');
     this.Convert(value, 8);
   }
 
-  private AddSpaces(binStr): string
+  private AddSpaces(binStr, size): string
   {
     var length = binStr.length;
 
-    for (var i = length; i > 4; i-=4)
+    for (var i = length; i > size; i -= size)
     {
-      binStr = binStr.slice(0, i - 4) + " " + binStr.slice(i - 4, binStr.length);
+      binStr = binStr.slice(0, i - size) + " " + binStr.slice(i - size, binStr.length);
     }
     
     return binStr;
