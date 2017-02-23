@@ -1,6 +1,12 @@
 h1 {
   font-family: Helvetica;
   font-weight: 100;
+  color: steelblue;
+}
+
+h3 {
+  font-family: Helvetica;
+  font-weight: 100;
 }
 
 h5 {
@@ -11,6 +17,10 @@ h5 {
 
 input {
   border-style: none;
+  background-color: aliceblue;
+  font-family: monospace;
+  font-size: 15px;
+  color: #212121;
 }
 
 label {
