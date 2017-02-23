@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Realtime Convertor';
+  title = 'Realtime Converter';
 
   public binStr: string;
   public hexStr: string;
