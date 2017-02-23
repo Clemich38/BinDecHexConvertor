@@ -11,17 +11,35 @@ export class AppComponent {
   public binStr: string;
   public hexStr: string;
   public decStr: string;
+  public octStr: string;
+  public errorMsg: string;
 
   constructor()
   {
-    this.binStr = "11000001";
-    this.hexStr = "AB3F";
-    this.decStr = "23670";
+    this.binStr = "1";
+    this.hexStr = "1";
+    this.decStr = "1";
+    this.octStr = "1";
+    this.errorMsg = "";
   }
 
-  private Convert(num, from, to): string
+  private ConvertOld(num, from, to): string
   {
     return parseInt(num, from).toString(to);
+  }
+
+  private Convert(value, from)
+  {
+    if (parseInt(value, from) <= Number.MAX_SAFE_INTEGER)
+    {
+      this.binStr = this.AddSpaces(parseInt(value, from).toString(2));
+      this.hexStr = parseInt(value, from).toString(16);
+      this.decStr = parseInt(value, from).toString(10);
+      this.octStr = parseInt(value, from).toString(8);
+      this.errorMsg = "";
+    }
+    else
+      this.errorMsg = "Number is to big!";
   }
 
 
@@ -29,30 +47,50 @@ export class AppComponent {
     return this.binStr;
   }
 
-  set binModel(value) {
-    this.binStr = value;
-    this.hexStr = this.Convert(this.binStr, 2, 16);
-    this.decStr = this.Convert(this.binStr, 2, 10);
+  set binModel(value)
+  {
+    value = value.split(' ').join('');
+    this.Convert(value, 2);
   }
 
   get hexModel() {
     return this.hexStr;
   }
 
-  set hexModel(value) {
-    this.hexStr = value;
-    this.binStr = this.Convert(this.hexStr, 16, 2);
-    this.decStr = this.Convert(this.hexStr, 16, 10);
+  set hexModel(value)
+  {
+    this.Convert(value, 16);
   }
 
   get decModel() {
     return this.decStr;
   }
 
-  set decModel(value) {
-    this.decStr = value;
-    this.hexStr = this.Convert(this.decStr, 10, 16);
-    this.binStr = this.Convert(this.decStr, 10, 2);
+  set decModel(value)
+  {
+    this.Convert(value, 10);
+  }
+
+  get octModel()
+  {
+    return this.octStr;
+  }
+
+  set octModel(value)
+  {
+    this.Convert(value, 8);
+  }
+
+  private AddSpaces(binStr): string
+  {
+    var length = binStr.length;
+
+    for (var i = length; i > 4; i-=4)
+    {
+      binStr = binStr.slice(0, i - 4) + " " + binStr.slice(i - 4, binStr.length);
+    }
+    
+    return binStr;
   }
 
 }
