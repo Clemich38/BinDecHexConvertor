@@ -33,9 +33,11 @@ export class AppComponent {
   // from: value base (2: binary, 8: octal, 10: decimal, 16: hexadecimal)
   private Convert(value, from)
   {
+    // Remove spaces
+    value = value.split(' ').join('');
+
     if (parseInt(value, from) <= Number.MAX_SAFE_INTEGER)
     {
-      console.log("yep")
       this.binStr = this.AddSpaces(parseInt(value, from).toString(2), 4);
       this.hexStr = this.AddSpaces(parseInt(value, from).toString(16), 4);
       this.decStr = this.AddSpaces(parseInt(value, from).toString(10), 3);
@@ -45,7 +47,7 @@ export class AppComponent {
     else if (value)
       this.errorMsg = "Number is to big!";
     else
-      this.errorMsg = "ahhhh";
+      this.errorMsg = "";
   }
 
   // Add space in string for it to be easily readable
@@ -70,8 +72,6 @@ export class AppComponent {
 
   set binModel(value)
   {
-    console.log("yo!!!");
-    value = value.split(' ').join('');
     this.Convert(value, 2);
   }
 
@@ -81,7 +81,6 @@ export class AppComponent {
 
   set hexModel(value)
   {
-    value = value.split(' ').join('');
     this.Convert(value, 16);
   }
 
@@ -91,7 +90,6 @@ export class AppComponent {
 
   set decModel(value)
   {
-    value = value.split(' ').join('');
     this.Convert(value, 10);
   }
 
@@ -102,7 +100,6 @@ export class AppComponent {
 
   set octModel(value)
   {
-    value = value.split(' ').join('');
     this.Convert(value, 8);
   }
 
