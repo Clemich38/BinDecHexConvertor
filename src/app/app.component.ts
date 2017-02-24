@@ -23,11 +23,6 @@ export class AppComponent {
     this.errorMsg = "";
   }
 
-  private ConvertOld(num, from, to): string
-  {
-    return parseInt(num, from).toString(to);
-  }
-
   // Convert the new received value into all the other formats
   // value: String to Convert
   // from: value base (2: binary, 8: octal, 10: decimal, 16: hexadecimal)
