@@ -1,18 +1,14 @@
 h1 {
-  font-family: Helvetica;
-  font-weight: 100;
   color: steelblue;
 }
 
-h3 {
-  font-family: Helvetica;
-  font-weight: 100;
+h5 {
+  color: darkgrey;
 }
 
-h5 {
+.helv {
   font-family: Helvetica;
   font-weight: 100;
-  color: darkgrey;
 }
 
 input {
